@@ -86,7 +86,7 @@ def sum_two_columns_of_numbers_from_file(filename):
     >> print(v) # toont (27, 104)
     """
     f = open(filename, "wt")
-    for i in range(0, 1000000000000):
+    for i in range(0, 100):
         f.write(str(i) + "," + str(i) + "\n")
     f.close()
     return f

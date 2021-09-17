@@ -1,16 +1,19 @@
 def raise_exception():
     """Raise exceptie RuntimeError"""
-    pass
+    raise RuntimeError
 
 
 def raise_exception_on_negative(x):
     """Raise exceptie RuntimeError als negatieve parameter x"""
-    pass
+    if x == -1:
+        raise RuntimeError
+    else:
+        pass
 
 
 def raise_exception_with_message():
     """Raise a RuntimeError exception met boodschap 'rare boel'"""
-    pass
+    raise RuntimeError("rare boel")
 
 
 def handle_exception(x, y):
@@ -19,12 +22,26 @@ def handle_exception(x, y):
     Als y 0 is krijg je een ZeroDivisionError exceptie, verwerk deze
     met try/except en geef dan None terug.
     """
-    pass
+    if y == 0:
+        raise ZeroDivisionError
+    return x/y
+
+try:
+    r = (10, 0)
+    print(f"{r}")
+except ZeroDivisionError:
+    print("None")
 
 
 def raise_custom_exception():
     """Raise a TooLazyError exception"""
-    pass
+    class TooLazyError(RuntimeError):
+        pass
+
+    class TooTiredError(RuntimeError):
+        pass
+
+
 
 
 def raise_custom_exception_with_message():
