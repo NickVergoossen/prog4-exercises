@@ -1,3 +1,4 @@
+import datetime
 # Schrijf voor onderstaande oefeningen eerst de testen in test_part_tdd.py
 # Implementeer ze vervolgens in dit bestand.
 
@@ -51,8 +52,21 @@ def anagram(word1, word2):
 # 45
 # 
 # Tip: Gebruik de datetime module:
-# datetime.date.now() geeft de huidige datum
-# datetime.date.date(year=2021, month=1, day=1) stelt 1 januari voor
+# datetime.date.today() geeft de huidige datum
+# datetime.date(year=2021, month=1, day=1) stelt 1 januari voor
 # Je kan data van elkaar aftrekken.
-def leeftijd():
-    return 0
+def leeftijd(year, month, day):
+    today = datetime.date.today()
+
+    age = today.year - year
+
+    if month == today.month:
+
+        if day > today.day:
+            age -= 1
+
+    elif month > today.month:
+
+        age -= 1
+
+    return age
