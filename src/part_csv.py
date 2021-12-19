@@ -1,3 +1,4 @@
+import csv
 # Haal de dataset met naam "Confirmed cases by date, age, sex and province"
 # in CSV-formaat af van de Sciensano-website:
 # https://epistat.wiv-isp.be/covid/
@@ -12,7 +13,19 @@ def determine_total_cases(age_category, gender):
     determine_total_cases("20-29", "M") geeft het aantal besmettingen van mannen tussen de 20 en 29 jaar oud
     terug. 
     """
-    return 0
+    f = open("COVID19BE_CASES_AGESEX.csv", "r")
+    reader = csv.reader(f)
+    teller = 0
+    for row in reader:
+        ac = row[-3]
+        g = row[-2]
+        am = row[-1]
+        if ac == age_category and gender == g:
+            print(row)
+            teller = teller + int(am)
+    return(teller)
+var = determine_total_cases("10-19", "M")
+print(var)
 
 
 
@@ -28,5 +41,6 @@ def output_total_cases(input_filename, output_filename):
     ...
     "90+", 123123
     """
+
     return 0
 
