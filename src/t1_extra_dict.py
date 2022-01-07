@@ -6,6 +6,14 @@ def maak_persoonsinformatie_dict(naam, leeftijd, gewicht, lengte, oogkleur):
     >>> maak_persoonsinformatie_dict("Jan", 32, 79, 167, "blauw")
     {'naam': 'Jan', 'leeftijd': 32, 'gewicht': 79, 'lengte': 167, 'oogkleur': 'blauw'}
     """
+    informatie = {
+        "naam": naam,
+        "leeftijd": leeftijd,
+        "gewicht": gewicht,
+        "lengte": lengte,
+        "oogkleur": oogkleur,
+    }
+    return informatie
 
 
 def tel_autos(lijst_autos):
@@ -16,6 +24,19 @@ def tel_autos(lijst_autos):
     >>> tel_autos(["bmw", "audi", "audi", "ford", "bmw"])
     {'peugeot': 0, 'ford': 1, 'bmw': 2, 'audi': 2, 'nissan': 0}
     """
+    autos = {
+        "audi": 0,
+        "bmw": 0,
+        "ford": 0,
+        "nissan": 0,
+        "peugeot": 0,
+    }
+    for i in lijst_autos:
+        autos[i] = autos.get(i, 0) + 1
+    return autos
+
+
+
 
 
 def leeftijden_acteurs(acteurs):
@@ -26,6 +47,8 @@ def leeftijden_acteurs(acteurs):
     >>> leeftijden_acteurs([["Will Smith", 53], ["Tom Hanks", 65]])
     [53, 65]
     """
+    for name in acteurs:
+        return name[1]
 
 
 def lengtes_acteurs(acteurs):
@@ -36,3 +59,6 @@ def lengtes_acteurs(acteurs):
     >>> lengtes_acteurs([{"naam": "Jennifer Lawrence", "leeftijd": 31, "lengte": 175}])
     [175]
     """
+    l = acteurs['lengte']
+    return l
+
