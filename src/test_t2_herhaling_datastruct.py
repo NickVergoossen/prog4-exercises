@@ -108,7 +108,7 @@ def test_tel_videokaarten_per_merk_2():
     assert result == expected
 
 
-def test_tel_videokaarten_per_merk_2():
+def test_tel_videokaarten_per_merk_3():
     videokaarten = [
         {
             "merk": "NVIDIA",
