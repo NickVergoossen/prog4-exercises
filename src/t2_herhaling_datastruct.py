@@ -56,6 +56,12 @@ def grootste_videokaart(lijst_videokaarten):
     >>> grootste_videokaart([{'naam': 'RTX 3080', 'diesize': 628}])
     RTX 3080
     """
+    grootste_diesize = 0
+    for dicts in lijst_videokaarten:
+        if dicts["diesize"] > grootste_diesize:
+            grootste_gpu = dicts["naam"]
+            grootste_diesize = dicts["diesize"]
+    return grootste_gpu
 
 
 
@@ -67,6 +73,20 @@ def grootste_videokaartgrootte_per_merk(lijst_videokaarten):
     >>> grootste_videokaartgrootte_per_merk([{'naam': 'RTX 3080', 'diesize': 628}])
     {'AMD': 0, 'NVIDIA': 628}
     """
+    grootste = {"AMD": 0,
+                "NVIDIA": 0,
+                }
+    for videokaarten in lijst_videokaarten:
+        if videokaarten['merk'] == 'AMD':
+            if videokaarten['diesize'] > grootste ['AMD']:
+                grootste['AMD'] = videokaarten['diesize']
+
+        if videokaarten['merk'] == 'NVIDIA':
+            if videokaarten['diesize'] > grootste ['NVIDIA']:
+                grootste['NVIDIA'] = videokaarten['diesize']
+
+    return grootste
+
 
 
 def diesizes_videokaarten(lijst_videokaarten):
@@ -77,6 +97,15 @@ def diesizes_videokaarten(lijst_videokaarten):
     >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
     [421, 320]
     """
+    grote_diesize = []
+
+    for grootste_diesizes in lijst_videokaarten:
+        die = grootste_diesizes['diesize']
+        grote_diesize.append(die)
+
+    return grote_diesize
+
+
 
 
 def gemiddelde_diesize_videokaarten(lijst_videokaarten):
@@ -87,6 +116,13 @@ def gemiddelde_diesize_videokaarten(lijst_videokaarten):
     >>> diesizes_videokaarten([{"diesize": 500}, {"diesize": 300}])
     400
     """
+    optelling = 0
+    for videokaarten in lijst_videokaarten:
+        optelling = optelling+videokaarten["diesize"]
+
+    return optelling/len(lijst_videokaarten)
+
+
 
 
 def jaren_videokaarten(lijst_videokaarten):
@@ -97,6 +133,7 @@ def jaren_videokaarten(lijst_videokaarten):
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
     [2020, 2020]
     """
+
 
 
 def videokaarten_voor_jaar(lijst_videokaarten, jaar):
