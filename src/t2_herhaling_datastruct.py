@@ -133,6 +133,10 @@ def jaren_videokaarten(lijst_videokaarten):
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
     [2020, 2020]
     """
+    lijst_jaren = []
+    for dicts in lijst_videokaarten:
+        lijst_jaren.append(dicts["jaar"])
+    return lijst_jaren
 
 
 
@@ -145,3 +149,8 @@ def videokaarten_voor_jaar(lijst_videokaarten, jaar):
     >>> videokaarten_voor_jaar([{"jaar": 2020, "diesize": 500}, {"jaar": 2021, "diesize": 300}], 2020)
     [{"jaar": 2020, "diesize": 500}]
     """
+    lijst_jaren = []
+    for kaart in lijst_videokaarten:
+        if kaart["jaar"] == jaar:
+            lijst_jaren.append(kaart)
+    return lijst_jaren
