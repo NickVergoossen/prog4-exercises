@@ -7,10 +7,15 @@ from rich import print
 
 def choose_word(words):
     """Een functie die een willekeurig woord uit een lijst kiest"""
-
+    a = words
+    return random.choice(a)
 
 def lines_to_words(lines):
     """Een functie die de newlines uit een lijst strings verwijdert"""
+    a = []
+    for x in lines:
+        a.append(x.strip())
+    return a
 
 
 def process_words(words, length):
@@ -20,7 +25,24 @@ def process_words(words, length):
     - woorden van de juiste lengte
     - woorden zonder: koppeltekens, spaties, hoofdletters, punten, quotes
     """
-
+    a = []
+    for x in words:
+        if len(x) != length:
+            continue
+        if " " in x:
+            continue
+        if "-" in x:
+            continue
+        if "'" in x:
+            continue
+        if "." in x:
+            continue
+        if x.isupper() in x:
+            continue
+        if x.istitle() in x:
+            continue
+        a.append(x)
+    return a
 
 def combine_letters_of_words(word1, word2):
     """Een functie die gegeven twee woorden een lijst van tuppels geeft.
@@ -32,7 +54,9 @@ def combine_letters_of_words(word1, word2):
     Gebruik hiervoor de zip-functie die je in de standaard bibliotheek
     van Python vindt.
     """
-
+    l = zip(word1, word2)
+    r = list(l)
+    return r
 
 def print_letter_volledig_juist(a):
     """Geef een string terug die de letter 'a' in het groen weer zou geven bij gebruik van Rich"""
@@ -87,24 +111,24 @@ if __name__ == "__main__":
 
         # als de gebruiker "stop" ingeeft beeindig het programma dan
         # gebruik hiervoor het break statement
-        if ...
+        #if ...
 
         # als het woord geen 5 letters lang is, sla dit woord dan over
         # gebruik hiervoor het continue statement
-        if ...
+        #if ...
 
         # controlleer of het woord correct is, en druk het woord in kleur
         # op het scherm af gebruik makend van combine_letters_of_words en
         # print_letter
-        for a, b in ...
-            letter = ...
-            print(letter, end="")
+        #for a, b in ...
+        #    letter = ...
+        #    print(letter, end="")
         print()
         counter += 1
 
         # als het woord correct geraden werd
         # toon dan een overwinningsboodschap
-        if ...
+        #if ...
 
     # toon hoeveel pogingen nodig waren om het woord juist te raden
     ...
