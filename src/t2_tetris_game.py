@@ -15,7 +15,18 @@ screen = None
 class PygameBoard(Board):
     def draw(self):
         """Teken het hele bord rij voor rij"""
-        # TODO
+        for y, row in enumerate(self.data):
+            for x, cell in enumerate(row):
+                xpos, ypos = map_to_pixel(x, y)
+                if cell < 0:
+                    color = (45, 45, 45)
+                else:
+                    color = COLORS[cell]
+                pygame.draw.rect(
+                    screen,
+                    color,
+                    pygame.Rect(xpos, ypos, 20, 20),
+                )
 
     def draw_shape(
         self,
